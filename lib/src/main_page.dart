@@ -44,18 +44,18 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              childCount: 30,
-                  (_, index) => ListTile(
-                title: Text('$index'),
-              ),
-            ),
-          ),
-        ],
-      ),
+      // body: CustomScrollView(
+      //   slivers: [
+      //     SliverList(
+      //       delegate: SliverChildBuilderDelegate(
+      //         childCount: 30,
+      //             (_, index) => ListTile(
+      //           title: Text('$index'),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
