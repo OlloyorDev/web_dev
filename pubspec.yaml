@@ -31,6 +31,8 @@ dependencies:
   # interceptor
   dio: ^5.3.2
   dio_retry_plus: ^2.0.0
+  # http
+  http: ^1.1.0
   # alice = chuck
   chuck_interceptor: ^2.0.2
   # device_info_plus:
