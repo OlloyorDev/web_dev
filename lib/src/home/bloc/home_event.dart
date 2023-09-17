@@ -18,7 +18,7 @@ class AddEmployeeEvent extends HomeEvent {
     required this.isAddEmployee,
   });
 
-  final AddEmployeeStatus isAddEmployee;
+  final DrawerStatus isAddEmployee;
 
   @override
   List<Object?> get props => [isAddEmployee];
@@ -70,4 +70,26 @@ class CreateSalaryEvent extends HomeEvent {
 class RequiredDetectEvent extends HomeEvent {
   @override
   List<Object?> get props => [];
+}
+
+class DeleteSalaryEvent extends HomeEvent {
+  const DeleteSalaryEvent({
+    required this.id,
+  });
+
+  final String id;
+
+  @override
+  List<Object?> get props => [];
+}
+
+class DrawerControlEvent extends HomeEvent {
+  const DrawerControlEvent({
+    required this.drawerStatus,
+  });
+
+  final DrawerStatus drawerStatus;
+
+  @override
+  List<Object?> get props => [drawerStatus];
 }

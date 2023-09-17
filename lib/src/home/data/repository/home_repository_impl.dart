@@ -74,4 +74,28 @@ class HomeRepositoryImpl implements HomeRepository {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, dynamic>> delete({
+    required String id,
+  }) async {
+    try {
+      final Response response = await dio.delete(
+        'https://salare-info-service.onrender.com/api/employee/$id',
+      );
+      return Right(response.data);
+    } on DioException catch (error, stacktrace) {
+      log('Exception occurred: $error stacktrace: $stacktrace');
+      return Left(
+        ServerError.withDioError(error: error).failure,
+      );
+    } on Exception catch (error, stacktrace) {
+      log('Exception occurred: $error stacktrace: $stacktrace');
+      return Left(
+        ServerError.withError(
+          message: error.toString(),
+        ).failure,
+      );
+    }
+  }
 }

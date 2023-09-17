@@ -42,7 +42,7 @@ sealed class AppUtils {
   // static const kBoxHeight60 = SizedBox(height: 60);
 
   /// divider
-  static const kDivider = Divider(height: 1);
+  static const kDivider = Divider(height: 1 ,color: Colors.grey,);
 
   /// padding
   static const kPadding0 = EdgeInsets.zero;

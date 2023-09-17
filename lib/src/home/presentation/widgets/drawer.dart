@@ -213,6 +213,7 @@ class _HomeDrawerState extends State<HomeDrawer> with DrawerMixin {
                                   ),
                                   ElevatedButton(
                                     onPressed: () {
+                                      context.read<HomeBloc>().add(const DrawerControlEvent(drawerStatus: DrawerStatus.isClose));
                                       Navigator.pop(context);
                                     },
                                     child: const Text(
@@ -285,10 +286,10 @@ class _HomeDrawerState extends State<HomeDrawer> with DrawerMixin {
                   );
                 },
               ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {},
-              ),
+              // ListTile(
+              //   title: const Text('Item 2'),
+              //   onTap: () {},
+              // ),
             ],
           ),
         );

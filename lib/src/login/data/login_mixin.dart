@@ -9,8 +9,8 @@ mixin LoginMixin on State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    loginController = TextEditingController(text: 'Olloyor');
-    passwordController = TextEditingController(text: 'Mars87');
+    loginController = TextEditingController();
+    passwordController = TextEditingController();
   }
 
   @override

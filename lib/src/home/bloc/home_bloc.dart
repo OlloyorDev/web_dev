@@ -13,9 +13,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     required this.homeRepository,
   }) : super(const HomeState()) {
     on<GetEmployeesEvent>(_onGetEmployeesEvent);
-    on<AddEmployeeEvent>(_onAddEmployeeEvent);
+    on<DrawerControlEvent>(_drawerControlEvent);
     on<CreateSalaryEvent>(_createSalaryEvent);
     on<RequiredDetectEvent>(_requiredDetectEvent);
+    on<DeleteSalaryEvent>(_deleteSalaryEvent);
   }
 
   final HomeRepository homeRepository;
@@ -65,11 +66,26 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
   }
 
-  void _onAddEmployeeEvent(
-    AddEmployeeEvent event,
+  Future<void> _deleteSalaryEvent(
+    DeleteSalaryEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(state.copyWith(deleteSalaryStatus: DeleteSalaryStatus.loading));
+    final response = await homeRepository.delete(
+      id: event.id,
+    );
+    response.fold((left) {
+      emit(state.copyWith(deleteSalaryStatus: DeleteSalaryStatus.failure));
+    }, (right) {
+      emit(state.copyWith(deleteSalaryStatus: DeleteSalaryStatus.success));
+    });
+  }
+
+  void _drawerControlEvent(
+    DrawerControlEvent event,
     Emitter<HomeState> emit,
   ) {
-    emit(state.copyWith(addEmployeeStatus: AddEmployeeStatus.isOpen));
+    emit(state.copyWith(addEmployeeStatus: event.drawerStatus));
   }
 
   void _requiredDetectEvent(

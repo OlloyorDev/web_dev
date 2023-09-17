@@ -14,4 +14,8 @@ abstract class HomeRepository {
     required SalaryCreateRequestModel request,
     required String token,
   });
+
+  Future<Either<Failure, dynamic>> delete({
+    required String id,
+  });
 }

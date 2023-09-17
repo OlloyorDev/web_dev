@@ -6,32 +6,36 @@ class HomeState extends Equatable {
     this.isRequired = false,
     this.getEmployeesResponse,
     this.getEmployeesStatus = GetEmployeesStatus.intintial,
-    this.addEmployeeStatus = AddEmployeeStatus.intintial,
+    this.drawerStatus = DrawerStatus.intintial,
     this.createSalaryStatus = CreateSalaryStatus.intintial,
+    this.deleteSalaryStatus = DeleteSalaryStatus.intintial,
   });
 
   final String? token;
   final bool isRequired;
   final GetEmployeesResponse? getEmployeesResponse;
   final GetEmployeesStatus getEmployeesStatus;
-  final AddEmployeeStatus addEmployeeStatus;
+  final DrawerStatus drawerStatus;
   final CreateSalaryStatus createSalaryStatus;
+  final DeleteSalaryStatus deleteSalaryStatus;
 
   HomeState copyWith({
     String? token,
     bool? isRequired,
     GetEmployeesResponse? getEmployeesResponse,
     GetEmployeesStatus? getEmployeesStatus,
-    AddEmployeeStatus? addEmployeeStatus,
+    DrawerStatus? addEmployeeStatus,
     CreateSalaryStatus? createSalaryStatus,
+    DeleteSalaryStatus? deleteSalaryStatus,
   }) {
     return HomeState(
       token: token ?? this.token,
       isRequired: isRequired ?? this.isRequired,
       getEmployeesResponse: getEmployeesResponse ?? this.getEmployeesResponse,
       getEmployeesStatus: getEmployeesStatus ?? GetEmployeesStatus.intintial,
-      addEmployeeStatus: addEmployeeStatus ?? AddEmployeeStatus.intintial,
+      drawerStatus: addEmployeeStatus ?? DrawerStatus.intintial,
       createSalaryStatus: createSalaryStatus ?? CreateSalaryStatus.intintial,
+      deleteSalaryStatus: deleteSalaryStatus ?? DeleteSalaryStatus.intintial,
     );
   }
 
@@ -41,8 +45,9 @@ class HomeState extends Equatable {
         isRequired,
         getEmployeesResponse,
         getEmployeesStatus,
-        addEmployeeStatus,
+        drawerStatus,
         createSalaryStatus,
+        deleteSalaryStatus,
       ];
 }
 
@@ -50,7 +55,9 @@ enum GetEmployeesStatus { intintial, loading, success, failure }
 
 enum CreateSalaryStatus { intintial, loading, success, failure }
 
-enum AddEmployeeStatus { intintial, isOpen, isClose }
+enum DeleteSalaryStatus { intintial, loading, success, failure }
+
+enum DrawerStatus { intintial, isOpen, isClose }
 
 extension GetEmployeesStatusX on GetEmployeesStatus {
   bool get isInitial => this == GetEmployeesStatus.intintial;
@@ -72,10 +79,20 @@ extension CreateSalaryStatusX on CreateSalaryStatus {
   bool get isFailure => this == CreateSalaryStatus.failure;
 }
 
-extension AddEmployeeStatusX on AddEmployeeStatus {
-  bool get isInitial => this == AddEmployeeStatus.intintial;
+extension AddEmployeeStatusX on DrawerStatus {
+  bool get isInitial => this == DrawerStatus.intintial;
 
-  bool get isOpen => this == AddEmployeeStatus.isOpen;
+  bool get isOpen => this == DrawerStatus.isOpen;
 
-  bool get isClose => this == AddEmployeeStatus.isClose;
+  bool get isClose => this == DrawerStatus.isClose;
+}
+
+extension DeleteSalaryStatusX on DeleteSalaryStatus {
+  bool get isInitial => this == DeleteSalaryStatus.intintial;
+
+  bool get isLoading => this == DeleteSalaryStatus.loading;
+
+  bool get isSuccess => this == DeleteSalaryStatus.success;
+
+  bool get isFailure => this == DeleteSalaryStatus.failure;
 }

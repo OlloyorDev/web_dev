@@ -5,11 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_devop/components/custom_text_field.dart';
 import 'package:web_devop/components/utils/utils.dart';
 import 'package:web_devop/src/home/bloc/home_bloc.dart';
-import 'package:web_devop/src/home/data/repository/home_repository.dart';
 import 'package:web_devop/src/home/data/repository/home_repository_impl.dart';
 import 'package:web_devop/src/home/presentation/screen/home_screen.dart';
 import 'package:web_devop/src/login/bloc/login_bloc.dart';
-import 'package:web_devop/src/login/data/login/auth_repository.dart';
 import 'package:web_devop/src/login/data/login_mixin.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,6 +18,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> with LoginMixin {
+  bool suffixIcon = false;
+
   @override
   Widget build(BuildContext context) => BlocConsumer<LoginBloc, LoginState>(
         listener: (_, state) {
@@ -64,11 +64,18 @@ class _LoginScreenState extends State<LoginScreen> with LoginMixin {
                   CustomTextField(
                     titleText: 'Пароль',
                     controller: passwordController,
-                    onChanged: (v) {},
+                    onChanged: (v) {
+                      if (passwordController.text.isNotEmpty) {
+                        suffixIcon = true;
+                      } else {
+                        suffixIcon = false;
+                      }
+                      setState(() {});
+                    },
                     errorText: 'Неправильный логин или пароль',
                     showError: state.isError,
                     obscureText: state.isPrivate,
-                    suffixIcon: IconButton(
+                    suffixIcon: suffixIcon ? IconButton(
                       onPressed: () {
                         context.read<LoginBloc>().add(
                               const LoginPrivate(),
@@ -83,17 +90,28 @@ class _LoginScreenState extends State<LoginScreen> with LoginMixin {
                               Icons.visibility_off,
                               size: 20,
                             ),
-                    ),
+                    ) : null,
                   ),
                   AppUtils.kGap20,
                   ElevatedButton(
                     onPressed: () async {
-                      context.read<LoginBloc>().add(
-                            SendLoginEvent(
-                              login: loginController.text,
-                              password: passwordController.text,
+                      if (loginController.text.isNotEmpty ||
+                          passwordController.text.isNotEmpty) {
+                        context.read<LoginBloc>().add(
+                              SendLoginEvent(
+                                login: loginController.text,
+                                password: passwordController.text,
+                              ),
+                            );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Login or password is empty',
                             ),
-                          );
+                          ),
+                        );
+                      }
                     },
                     child: const Text(
                       'Войти',
