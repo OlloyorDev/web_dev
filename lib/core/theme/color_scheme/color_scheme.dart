@@ -17,24 +17,32 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     required this.black,
     required this.background,
     required this.cardBackground,
+    required this.textPrimary,
+    required this.textSecondary,
   });
 
   final Color white;
   final Color black;
   final Color background;
   final Color cardBackground;
+  final Color textPrimary;
+  final Color textSecondary;
 
   static ThemeColors light = const ThemeColors(
     white: AppColors.white,
     black: AppColors.black,
     background: AppColors.lightBackground,
     cardBackground: AppColors.lightCardBackground,
+    textPrimary: AppColors.black,
+    textSecondary: AppColors.black,
   );
   static const ThemeColors dark = ThemeColors(
-    white: AppColors.white,
-    black: AppColors.black,
+    white: AppColors.black,
+    black: AppColors.white,
     background: AppColors.darkBackground,
     cardBackground: AppColors.darkCardBackground,
+    textPrimary: AppColors.white,
+    textSecondary: AppColors.white,
   );
 
   @override
@@ -43,12 +51,16 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     Color? black,
     Color? background,
     Color? cardBackground,
+    Color? textPrimary,
+    Color? textSecondary,
   }) =>
       ThemeColors(
         white: white ?? this.white,
         black: black ?? this.black,
         background: background ?? this.background,
         cardBackground: cardBackground ?? this.cardBackground,
+        textPrimary: textPrimary ?? this.textPrimary,
+        textSecondary: textSecondary ?? this.textSecondary,
       );
 
   @override
@@ -63,8 +75,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       white: Color.lerp(white, other.white, t)!,
       black: Color.lerp(black, other.black, t)!,
       background: Color.lerp(background, other.background, t)!,
-      cardBackground:
-          Color.lerp(cardBackground, other.cardBackground, t)!,
+      cardBackground: Color.lerp(cardBackground, other.cardBackground, t)!,
+      textPrimary: Color.lerp(textPrimary, other.textPrimary, t)!,
+      textSecondary: Color.lerp(textSecondary, other.textSecondary, t)!,
     );
   }
 }

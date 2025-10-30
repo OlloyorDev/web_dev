@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_devop/config/router/app_router.dart';
+import 'package:web_devop/core/l10n/app_localizations.dart';
 import 'package:web_devop/core/theme/app_theme.dart';
 import 'package:web_devop/features/app/presentation/bloc/app_bloc.dart';
 import 'package:web_devop/features/injection_container.dart';
@@ -21,6 +22,9 @@ class App extends StatelessWidget {
               themeAnimationDuration: Duration.zero,
               themeAnimationCurve: Curves.linear,
               routerDelegate: router.routerDelegate,
+              locale: const Locale('en'),
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
               routeInformationParser: router.routeInformationParser,
               routeInformationProvider: router.routeInformationProvider,
             );

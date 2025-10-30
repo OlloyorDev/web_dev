@@ -1,7 +1,9 @@
 {
-  "appName": "DZHEHUTI",
-  "question": "Опросы",
-  "statistics": "Ститистика",
-  "quotas": "Квоты",
-  "settings": "Параметры"
+  "aboutMe": "About Me",
+  "experience": "Experience",
+  "projects": "Projects",
+  "contact": "Contact",
+  "dark": "Dark",
+  "light": "Light",
+  "auto": "Auto"
 }

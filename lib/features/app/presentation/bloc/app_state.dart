@@ -11,3 +11,11 @@ class AppState extends Equatable {
   @override
   List<Object> get props => [themeMode];
 }
+
+extension ThemeModeX on ThemeMode {
+  bool get isDark => this == ThemeMode.dark;
+
+  bool get isLight => this == ThemeMode.light;
+
+  bool get isSystem => this == ThemeMode.system;
+}
