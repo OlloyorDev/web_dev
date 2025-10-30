@@ -27,7 +27,14 @@ class MyApp extends StatelessWidget {
       ),
       home: const Scaffold(
         body: Center(
-          child: Text('Welcome to Onx!'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Welcome to Onx!'),
+              SizedBox(height: 20),
+              CircularProgressIndicator(),
+            ],
+          ),
         ),
       ),
     );
