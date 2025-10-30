@@ -10,43 +10,40 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  go_router: ^16.2.5
   intl: ^0.20.2
   # hive no sql database
   hive: ^2.2.3
   # path
-  path_provider: ^2.1.1
+  path_provider: ^2.1.5
   # get it singleton
-  get_it: ^7.6.4
+  get_it: ^8.2.0
   # equatable
-  equatable: ^2.0.5
+  equatable: ^2.0.7
   # bloc state manager
-  flutter_bloc: ^8.1.3
+  flutter_bloc: ^9.1.1
   # async
-  async: ^2.11.0
+  async: ^2.13.0
   # forms
-  formz: ^0.6.0
+  formz: ^0.8.0
   # internet check
-  connectivity_plus: ^4.0.2
-  internet_connection_checker: ^1.0.0+1
+  connectivity_plus: ^6.1.1
+  internet_connection_checker: ^3.0.1
   # interceptor
-  dio: ^5.3.2
-  dio_retry_plus: ^2.0.0
-  # http
-  http: ^1.1.0
+  dio: ^5.9.0
+  dio_retry_plus: ^2.0.8
   # alice = chuck
-  chuck_interceptor: ^2.0.2
+  chuck_interceptor: ^2.3.2
   # device_info_plus:
-  device_info_plus: ^9.0.3
+  device_info_plus: ^12.2.0
   # box
   gap: ^3.0.1
-  # pin put:
-  pinput: ^3.0.1
   # svg render
-  flutter_svg: ^2.0.7
+  flutter_svg: ^2.2.1
   # cached image
-  cached_network_image: ^3.2.3
+  cached_network_image: ^3.4.1
   # native splash
-  flutter_native_splash: ^2.3.2
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:
