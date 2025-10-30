@@ -17,6 +17,7 @@ class WebSectionWrapper extends StatelessWidget {
     required this.sectionKey,
     required this.onTap,
   });
+
   @override
   Widget build(BuildContext context) => SliverToBoxAdapter(
         child: InkWell(
