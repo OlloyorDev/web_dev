@@ -10,5 +10,6 @@ void main() async {
   await initInjection();
   if (kDebugMode) Bloc.observer = LogBlocObserver();
 
+
   runApp(const App());
 }
