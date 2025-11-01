@@ -6,7 +6,7 @@ import 'package:web_devop/core/theme/color_scheme/color_scheme.dart';
 
 final ThemeData appTheme = ThemeData(
   useMaterial3: true,
-  fontFamily: 'Poppins',
+  fontFamily: 'Montserrat',
   applyElevationOverlayColor: true,
   splashFactory: !kIsWeb
       ? Platform.isAndroid
@@ -35,9 +35,9 @@ final ThemeData lightTheme = appTheme.copyWith(
   colorScheme: lightColorScheme,
   scaffoldBackgroundColor: lightColorScheme.surface,
   textTheme: const TextTheme(
-    bodyLarge: TextStyle(color: Colors.black87, fontFamily: 'Poppins'),
-    bodyMedium: TextStyle(color: Colors.black87, fontFamily: 'Poppins'),
-    bodySmall: TextStyle(color: Colors.black87, fontFamily: 'Poppins'),
+    bodyLarge: TextStyle(color: Colors.black87, fontFamily: 'Montserrat'),
+    bodyMedium: TextStyle(color: Colors.black87, fontFamily: 'Montserrat'),
+    bodySmall: TextStyle(color: Colors.black87, fontFamily: 'Montserrat'),
   ),
 );
 
@@ -53,8 +53,8 @@ final ThemeData darkTheme = appTheme.copyWith(
   colorScheme: darkColorScheme,
   scaffoldBackgroundColor: darkColorScheme.surface,
   textTheme: const TextTheme(
-    bodyLarge: TextStyle(color: Colors.white70, fontFamily: 'Poppins'),
-    bodyMedium: TextStyle(color: Colors.white70, fontFamily: 'Poppins'),
-    bodySmall: TextStyle(color: Colors.white70, fontFamily: 'Poppins'),
+    bodyLarge: TextStyle(color: Colors.white70, fontFamily: 'Montserrat'),
+    bodyMedium: TextStyle(color: Colors.white70, fontFamily: 'Montserrat'),
+    bodySmall: TextStyle(color: Colors.white70, fontFamily: 'Montserrat'),
   ),
 );

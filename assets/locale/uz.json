@@ -1,9 +1,10 @@
 {
-  "aboutMe": "Обо мне",
-  "experience": "Опыт",
-  "projects": "Проекты",
-  "contact": "Контакты",
-  "dark": "Темная",
-  "light": "Светлая",
-  "auto": "Авто"
+  "fullName": "Nodirov Olloyor",
+  "aboutMe": "Men haqimda",
+  "experience": "Tajriba",
+  "projects": "Loyihalar",
+  "contact": "Aloqa",
+  "dark": "Tungi",
+  "light": "Yorugʻ",
+  "auto": "Avto"
 }

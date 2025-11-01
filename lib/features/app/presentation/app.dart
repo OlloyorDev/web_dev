@@ -22,7 +22,7 @@ class App extends StatelessWidget {
               themeAnimationDuration: Duration.zero,
               themeAnimationCurve: Curves.linear,
               routerDelegate: router.routerDelegate,
-              locale: const Locale('en'),
+              locale: state.locale,
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
               routeInformationParser: router.routeInformationParser,

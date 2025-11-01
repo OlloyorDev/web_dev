@@ -8,6 +8,7 @@ part 'app_state.dart';
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(const AppState()) {
     on<ChangeThemeEvent>(_changeTheme);
+    on<ChangeLanguageEvent>(_changeLanguage);
   }
 
   void _changeTheme(
@@ -15,4 +16,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     Emitter<AppState> emit,
   ) =>
       emit(state.copyWith(themeMode: event.themeMode));
+
+  void _changeLanguage(
+    ChangeLanguageEvent event,
+    Emitter<AppState> emit,
+  ) =>
+      emit(state.copyWith(locale: event.locale));
 }
