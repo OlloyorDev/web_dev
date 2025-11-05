@@ -1,45 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+    <base href="$FLUTTER_BASE_HREF">
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="olloyor.com — Flutter Web Portfolio">
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="olloyor.com">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>olloyor.com</title>
+    <link rel="manifest" href="manifest.json">
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="$FLUTTER_BASE_HREF">
+    <script>
+        var serviceWorkerVersion = '{{flutter_service_worker_version}}';
+    </script>
+    <script src="flutter.js" defer></script>
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+    <!-- ✅ Lottie player (web component) -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="olloyor.com">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <style>
+        html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          overflow: hidden;
+        }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+        /* Dark theme (default) */
+        body {
+          background-color: #171923;
+        }
 
-  <title>olloyor.com</title>
-  <link rel="manifest" href="manifest.json">
+        #splash {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #171923;
+          z-index: 9999;
+          transition: opacity 0.4s ease-out;
+        }
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '{{flutter_service_worker_version}}';;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+        /* Light theme media query */
+        @media (prefers-color-scheme: light) {
+          body {
+            background-color: #F4F5F9;
+          }
+
+          #splash {
+            background-color: #F4F5F9;
+          }
+        }
+
+        lottie-player {
+          width: 50px;
+          height: 50px;
+        }
+    </style>
 </head>
+
 <body>
+<!-- 🔥 Lottie splash -->
+<div id="splash">
+    <lottie-player
+            src="assets/lottie/loading.json"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay>
+    </lottie-player>
+</div>
+
+<script>
+    // ❌ Eski kod o'chirildi - faqat 'load' event yetarli emas
+
+    // ✅ Flutter to'liq render bo'lgach splash o'chadi
+    window.addEventListener('flutter-first-frame', function() {
+      const splash = document.getElementById('splash');
+      if (splash) {
+        splash.style.opacity = '0';
+        setTimeout(() => splash.remove(), 400);
+      }
+    });
+</script>
+
 <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

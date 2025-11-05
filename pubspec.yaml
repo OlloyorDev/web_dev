@@ -44,6 +44,9 @@ dependencies:
   cached_network_image: ^3.4.1
   # native splash
   flutter_native_splash: ^2.4.7
+  firebase_core: ^4.2.0
+  cloud_firestore: ^6.1.0
+  lottie: 3.3.2
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +59,7 @@ flutter:
   assets:
     - assets/locale/
     - assets/fonts/
+    - assets/lottie/
   fonts:
     - family: Montserrat
       fonts:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:web_devop/common/extension/build_context_extension.dart';
 import 'package:web_devop/core/util/app_utils.dart';
 import 'package:web_devop/features/home/presentation/bloc/home_bloc.dart';
@@ -21,40 +22,48 @@ class HomeWebPage extends StatelessWidget {
           return SelectableRegion(
             selectionControls: MaterialTextSelectionControls(),
             child: Scaffold(
-              body: CustomScrollView(
-                slivers: [
-                  const WebAppbar(),
-                  WebSectionWrapper(
-                    title: context.tr('aboutMe'),
-                    sectionKey: aboutMeKey,
-                    subtitle: aboutMeSection,
-                    onTap: () {},
-                  ),
-                  AppUtils.kSliverGap16,
-                  WebSectionWrapper(
-                    title: context.tr('experience'),
-                    subtitle: experienceSection,
-                    sectionKey: experienceKey,
-                    onTap: () {},
-                  ),
-                  AppUtils.kSliverGap16,
-                  WebSectionWrapper(
-                    title: context.tr('projects'),
-                    subtitle: projectsSection,
-                    sectionKey: projectsKey,
-                    onTap: () {},
-                  ),
-                  AppUtils.kSliverGap16,
-                  WebSectionWrapper(
-                    title: context.tr('contact'),
-                    subtitle: contactsSection,
-                    sectionKey: contactsKey,
-                    onTap: () {},
-                  ),
-                  AppUtils.kSliverGap16,
-                  const WebBottomWidget(),
-                ],
-              ),
+              body: state.getStatus.loading
+                  ? Center(
+                      child: Lottie.asset(
+                        'assets/lottie/loading.json',
+                        height: 50,
+                        width: 50,
+                      ),
+                    )
+                  : CustomScrollView(
+                      slivers: [
+                        const WebAppbar(),
+                        WebSectionWrapper(
+                          title: context.tr('aboutMe'),
+                          sectionKey: aboutMeKey,
+                          subtitle: aboutMeSection,
+                          onTap: () {},
+                        ),
+                        AppUtils.kSliverGap16,
+                        WebSectionWrapper(
+                          title: context.tr('experience'),
+                          subtitle: experienceSection,
+                          sectionKey: experienceKey,
+                          onTap: () {},
+                        ),
+                        AppUtils.kSliverGap16,
+                        WebSectionWrapper(
+                          title: context.tr('projects'),
+                          subtitle: projectsSection,
+                          sectionKey: projectsKey,
+                          onTap: () {},
+                        ),
+                        AppUtils.kSliverGap16,
+                        WebSectionWrapper(
+                          title: context.tr('contact'),
+                          subtitle: contactsSection,
+                          sectionKey: contactsKey,
+                          onTap: () {},
+                        ),
+                        AppUtils.kSliverGap16,
+                        const WebBottomWidget(),
+                      ],
+                    ),
             ),
           );
         },

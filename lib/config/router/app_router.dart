@@ -19,7 +19,7 @@ final GoRouter router = GoRouter(
       builder: (context, state) => MultiBlocProvider(
         providers: [
           BlocProvider<HomeBloc>(
-            create: (context) => sl<HomeBloc>(),
+            create: (context) => sl<HomeBloc>()..add(GetInitialData()),
           ),
         ],
         child: const HomeView(),
