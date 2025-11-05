@@ -3,10 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "34119cd0a020446bca607291df82e2f9",
+const RESOURCES = {"flutter_bootstrap.js": "a79a27d1d67650d431c682a01ad4c060",
 "version.json": "0a3c7a59ac7921b7f4f6a7f1871187e8",
-"index.html": "f08cbb75b089216d6f1023e0c454519c",
-"/": "f08cbb75b089216d6f1023e0c454519c",
+"index.html": "27efc2d2a4d7aab4c419ec68e7ba35c5",
+"/": "27efc2d2a4d7aab4c419ec68e7ba35c5",
+"loading.json": "bfa4bebda7f16127bcedb10bcb567939",
 "main.dart.js": "b9ec9a7207c00f48e415c4d35ac1c4cb",
 "flutter.js": "888483df48293866f9f41d3d9274a779",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
@@ -25,7 +26,7 @@ const RESOURCES = {"flutter_bootstrap.js": "34119cd0a020446bca607291df82e2f9",
 "assets/assets/locale/ru.json": "8008b3601cf0dee4aff9e6da6b072865",
 "assets/assets/locale/en.json": "e19184a4365b41470d790fb03485c984",
 "assets/assets/locale/uz.json": "25a8a4d672ca5928998339c809ab4e89",
-"assets/assets/lottie/loading.json": "dc26f31c7824b5e99dbc8d7cacc10126",
+"assets/assets/lottie/loading.json": "bfa4bebda7f16127bcedb10bcb567939",
 "assets/assets/fonts/Montserrat-SemiBold.ttf": "c1bd726715a688ead84c2dbf4c82f88d",
 "canvaskit/skwasm.js": "1ef3ea3a0fec4569e5d531da25f34095",
 "canvaskit/skwasm_heavy.js": "413f5b2b2d9345f37de148e2544f584f",

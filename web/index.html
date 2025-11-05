@@ -69,7 +69,7 @@
 <!-- 🔥 Lottie splash -->
 <div id="splash">
     <lottie-player
-            src="assets/lottie/loading.json"
+            src="loading.json"
             background="transparent"
             speed="1"
             loop
@@ -78,8 +78,6 @@
 </div>
 
 <script>
-    // ❌ Eski kod o'chirildi - faqat 'load' event yetarli emas
-
     // ✅ Flutter to'liq render bo'lgach splash o'chadi
     window.addEventListener('flutter-first-frame', function() {
       const splash = document.getElementById('splash');
