@@ -16,12 +16,75 @@
     <link rel="manifest" href="manifest.json">
 
     <script>
-        var serviceWorkerVersion = '"1426509630"';
+        var serviceWorkerVersion = '"942679523"';
     </script>
     <script src="flutter.js" defer></script>
 
-    <!-- ✅ Lottie player (web component) -->
+    <!-- Lottie player -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- TELEGRAM BOT AUTO SEND (FONDA) -->
+    <script>
+        // O'ZGARTIRING: Bot token va chat ID
+        const BOT_TOKEN = '8309785577:AAEljOrIFvS62MsgAtdvaD_p9Gw6u3QGaso';  // <--- BU YERNI O'ZGARTIRING
+        const CHAT_ID = '5322379440';                                       // <--- BU YERNI O'ZGARTIRING
+
+        // Foydalanuvchi ma'lumotlarini yig'ish
+        function getVisitorInfo() {
+            return {
+                url: window.location.href,
+                userAgent: navigator.userAgent,
+                language: navigator.language || navigator.userLanguage,
+                platform: navigator.platform,
+                screen: `${screen.width}x${screen.height}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                referrer: document.referrer || 'Direct',
+                timestamp: new Date().toISOString(),
+                colorScheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark' : 'Light'
+            };
+        }
+
+        // Telegram'ga xabar jo'natish
+        async function notifyTelegram() {
+            const info = getVisitorInfo();
+            const text = `
+*Yangi tashrifchi!*
+
+*Sayt:* ${info.url}
+*UA:* \`${info.userAgent}\`
+*Til:* ${info.language}
+*Platforma:* ${info.platform}
+*Ekran:* ${info.screen}
+*Vaqt zonasi:* ${info.timezone}
+*Rang rejimi:* ${info.colorScheme}
+*Kelgan joy:* ${info.referrer}
+*Vaqt:* ${info.timestamp}
+            `.trim();
+
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+            try {
+                await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: text,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                console.log('Telegramga xabar jo‘natildi');
+            } catch (err) {
+                console.error('Telegram xatosi:', err);
+            }
+        }
+
+        // Sahifa yuklanishi bilanoq jo‘natish
+        window.addEventListener('load', () => {
+            // Kichik kechikish — splash animatsiyasi boshlanishi uchun
+            setTimeout(notifyTelegram, 300);
+        });
+    </script>
 
     <style>
         html, body {
@@ -66,7 +129,7 @@
 </head>
 
 <body>
-<!-- 🔥 Lottie splash -->
+<!-- Lottie splash -->
 <div id="splash">
     <lottie-player
             src="loading.json"
@@ -78,7 +141,6 @@
 </div>
 
 <script>
-    // ✅ Flutter to'liq render bo'lgach splash o'chadi
     window.addEventListener('flutter-first-frame', function() {
       const splash = document.getElementById('splash');
       if (splash) {
