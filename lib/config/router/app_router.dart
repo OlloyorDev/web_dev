@@ -11,41 +11,15 @@ final rootKey = GlobalKey<NavigatorState>();
 final GoRouter router = GoRouter(
   navigatorKey: rootKey,
   initialLocation: AppRouteNames.home,
-  observers: [GoRouterObserver()],
   routes: <RouteBase>[
     GoRoute(
       path: AppRouteNames.home,
       name: AppRouteNames.home,
-      builder: (context, state) => MultiBlocProvider(
-        providers: [
-          BlocProvider<HomeBloc>(
-            create: (context) => sl<HomeBloc>()..add(GetInitialData()),
-          ),
-        ],
+      builder: (context, state) => BlocProvider<HomeBloc>(
+        create: (context) =>
+            sl<HomeBloc>()..add(const GetInitialData(languageCode: 'en')),
         child: const HomeView(),
       ),
     ),
   ],
 );
-
-class GoRouterObserver extends NavigatorObserver {
-  @override
-  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    debugPrint('didPush: ${route.settings.name}');
-  }
-
-  @override
-  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    debugPrint('didPop: ${route.settings.name}');
-  }
-
-  @override
-  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    debugPrint('didRemove: ${route.settings.name}');
-  }
-
-  @override
-  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
-    debugPrint('didReplace: ${newRoute?.settings.name}');
-  }
-}

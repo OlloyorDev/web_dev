@@ -5,6 +5,10 @@ sealed class HomeEvent extends Equatable {
 }
 
 class GetInitialData extends HomeEvent {
+  final String languageCode;
+
+  const GetInitialData({this.languageCode = 'en'});
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [languageCode];
 }

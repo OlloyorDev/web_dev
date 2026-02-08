@@ -1,8 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:web_devop/features/home/data/model/home_model.dart';
+import 'package:web_devop/features/home/data/model/resume_model.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -18,54 +20,77 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     emit(state.copyWith(getStatus: GetStatus.loading));
     try {
-      final snapshot =
-          await FirebaseFirestore.instance.collectionGroup('home').get();
+      final remoteConfig = FirebaseRemoteConfig.instance;
+      await remoteConfig.setConfigSettings(RemoteConfigSettings(
+        fetchTimeout: const Duration(seconds: 10),
+        minimumFetchInterval: const Duration(minutes: 5),
+      ));
+      await remoteConfig.fetchAndActivate();
 
-      if (snapshot.docs.isEmpty) {
+      final genericString = remoteConfig.getString('generic_data');
+      final langString = remoteConfig.getString('resume_${event.languageCode}');
+
+      if (langString.isEmpty) {
         emit(state.copyWith(getStatus: GetStatus.error));
         return;
       }
 
-      AboutMe? aboutMe;
-      List<Experience> experiences = [];
-      List<Projects> projects = [];
-      List<Contact> contacts = [];
+      String sanitize(String s) =>
+          s.replaceAll(RegExp(r'[\x00-\x1F\x7F]', multiLine: true), ' ');
 
-      for (final doc in snapshot.docs) {
-        final data = doc.data();
-        final type = data['type'] as String?;
+      final genericJson = genericString.isNotEmpty
+          ? jsonDecode(sanitize(genericString)) as Map<String, dynamic>
+          : <String, dynamic>{};
+      final langJson = jsonDecode(sanitize(langString)) as Map<String, dynamic>;
 
-        switch (type) {
-          case 'about_me':
-            aboutMe = AboutMe.fromJson(data);
-            break;
-          case 'experience':
-            experiences.add(Experience.fromJson(data));
-            break;
-          case 'project':
-            projects.add(Projects.fromJson(data));
-            break;
-          case 'contact':
-            contacts.add(Contact.fromJson(data));
-            break;
-          default:
-            aboutMe ??= AboutMe.fromJson(data);
-        }
-      }
+      final merged = _deepMerge(genericJson, langJson);
+      final resume = ResumeModel.fromJson(merged);
 
       emit(state.copyWith(
         getStatus: GetStatus.success,
-        homeData: HomeModel(
-          aboutMe: aboutMe,
-          experiences: experiences,
-          projects: projects,
-          contacts: contacts,
-        ),
+        resumeData: resume,
       ));
     } catch (e, stackTrace) {
-      debugPrint('Error fetching data: $e');
+      debugPrint('Error fetching remote config: $e');
       debugPrint('Stack trace: $stackTrace');
       emit(state.copyWith(getStatus: GetStatus.error));
     }
+  }
+
+  static Map<String, dynamic> _deepMerge(
+    Map<String, dynamic> base,
+    Map<String, dynamic> override,
+  ) {
+    final result = Map<String, dynamic>.from(base);
+    for (final key in override.keys) {
+      final baseVal = result[key];
+      final overVal = override[key];
+
+      if (baseVal is Map<String, dynamic> && overVal is Map<String, dynamic>) {
+        result[key] = _deepMerge(baseVal, overVal);
+      } else if (baseVal is List && overVal is List) {
+        result[key] = _mergeList(baseVal, overVal);
+      } else {
+        result[key] = overVal;
+      }
+    }
+    return result;
+  }
+
+  static List<dynamic> _mergeList(List<dynamic> base, List<dynamic> override) {
+    final result = <dynamic>[];
+    final length =
+        base.length > override.length ? base.length : override.length;
+    for (int i = 0; i < length; i++) {
+      final b = i < base.length ? base[i] : null;
+      final o = i < override.length ? override[i] : null;
+
+      if (b is Map<String, dynamic> && o is Map<String, dynamic>) {
+        result.add(_deepMerge(b, o));
+      } else {
+        result.add(o ?? b);
+      }
+    }
+    return result;
   }
 }

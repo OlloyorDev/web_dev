@@ -1,0 +1,106 @@
+{
+  "personal_info": {
+    "full_name": "Nodirov Olloyor",
+    "title": "Flutter Developer",
+    "summary": "Flutter developer with 3+ years of experience building cross-platform mobile applications. Skilled in clean architecture, state management, REST API integration, and real-time communication with WebSocket.",
+    "location": "Tashkent, Uzbekistan"
+  },
+  "experience": [
+    {
+      "company": "Upgrow",
+      "position": "Flutter Developer",
+      "employment_type": "Full-time",
+      "responsibilities": [
+        "Improved mobile application by delivering new features and optimizing performance",
+        "Designed and implemented a real-time chat system using WebSocket",
+        "Ensured smooth, crash-free operation of the application"
+      ]
+    },
+    {
+      "company": "KPI COM",
+      "position": "Flutter Developer",
+      "employment_type": "Full-time",
+      "responsibilities": [
+        "Implemented invoice creation and product management features",
+        "Optimized API requests across the app to remove redundancies",
+        "Improved performance and ensured efficient data handling"
+      ]
+    },
+    {
+      "company": "Tourism Committee of Uzbekistan",
+      "position": "Flutter Developer",
+      "employment_type": "Contract",
+      "responsibilities": [
+        "Built a mobile app to promote the tourism sector",
+        "Introduced tourists to key attractions of Uzbekistan"
+      ]
+    },
+    {
+      "company": "KPI COM",
+      "position": "Flutter Developer",
+      "employment_type": "Full-time",
+      "responsibilities": [
+        "Worked on a large dynamic ERP project with multiple modules",
+        "Developed Accounting, HR, Sales, Payroll, Project Management, and BI modules"
+      ]
+    },
+    {
+      "company": "Udevs",
+      "position": "Flutter Developer",
+      "employment_type": "Full-time",
+      "responsibilities": [
+        "Participated in App Store and Play Market deployment processes",
+        "Gained extensive experience in mobile app development lifecycle"
+      ]
+    },
+    {
+      "company": "Udevs",
+      "position": "Flutter Developer Intern",
+      "employment_type": "Internship",
+      "responsibilities": [
+        "Fixed bugs in several mobile applications",
+        "Learned core principles of the Flutter framework and Dart language"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "role": "Flutter Developer",
+      "description": "Joined the project after the initial development phase and optimized its performance by around 40%. Improved app stability, fixed bugs, and implemented full dark & light mode support."
+    },
+    {
+      "role": "Flutter Developer",
+      "description": "An ERP system with multiple modules such as Project Management, Accounting, and Sales. Worked primarily on the Project Management and Home sections, focusing on modular UI development and state management."
+    },
+    {
+      "role": "Flutter Developer",
+      "description": "A lightweight mobile app designed for tourists to explore and discover nearby attractions and points of interest. Built with an emphasis on simple navigation and responsive UI for better travel usability."
+    },
+    {
+      "role": "Flutter Developer",
+      "description": "Initially worked on fixing bugs in the old version. Later rewrote the project from scratch using modern technologies due to outdated architecture. The project completed one full development cycle."
+    },
+    {
+      "role": "Flutter Developer",
+      "description": "Worked mainly on bug fixing and learned how to deploy apps to both the App Store and Play Market. Improved app stability and performance during maintenance updates."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Uacademy bootcamp by Udevs",
+      "degree": "Secondary",
+      "field_of_study": "Mobile Development"
+    }
+  ],
+  "languages": [
+    {"name": "Uzbek", "level": "Native"},
+    {"name": "English", "level": "B1 — Intermediate"},
+    {"name": "Russian", "level": "B1 — Intermediate"}
+  ],
+  "achievements": [
+    "3+ years of professional Flutter development experience",
+    "Built real-time chat system with WebSocket",
+    "Developed large-scale ERP system with multiple modules",
+    "Published apps on App Store and Play Market"
+  ]
+}

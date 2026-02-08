@@ -22,7 +22,7 @@ class WebSectionWrapper extends StatelessWidget {
           decoration: BoxDecoration(
             color: context.themeColor.cardBackground,
             border: Border.all(
-              color: context.themeColor.background,
+              color: context.themeColor.divider,
               width: 0.5,
             ),
             borderRadius: BorderRadius.circular(12),

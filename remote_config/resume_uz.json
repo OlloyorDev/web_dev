@@ -1,0 +1,106 @@
+{
+  "personal_info": {
+    "full_name": "Nodirov Olloyor",
+    "title": "Flutter Dasturchi",
+    "summary": "3 yildan ortiq tajribaga ega Flutter dasturchi. Krossplatforma mobil ilovalar yaratish, clean architecture, state management, REST API integratsiya va WebSocket orqali real-time kommunikatsiya bo'yicha tajribali.",
+    "location": "Toshkent, O'zbekiston"
+  },
+  "experience": [
+    {
+      "company": "Upgrow",
+      "position": "Flutter Dasturchi",
+      "employment_type": "To'liq ish kuni",
+      "responsibilities": [
+        "Mobil ilovani yangi funksiyalar qo'shish va samaradorlikni oshirish orqali yaxshilash",
+        "WebSocket yordamida real-time chat tizimini loyihalash va joriy etish",
+        "Ilovaning barqaror va uzilishsiz ishlashini ta'minlash"
+      ]
+    },
+    {
+      "company": "KPI COM",
+      "position": "Flutter Dasturchi",
+      "employment_type": "To'liq ish kuni",
+      "responsibilities": [
+        "Hisob-faktura yaratish va mahsulotlarni boshqarish funksiyalarini ishlab chiqish",
+        "Ilova bo'ylab API so'rovlarini optimallashtirish",
+        "Samaradorlikni oshirish va ma'lumotlarni samarali qayta ishlashni ta'minlash"
+      ]
+    },
+    {
+      "company": "O'zbekiston Turizm qo'mitasi",
+      "position": "Flutter Dasturchi",
+      "employment_type": "Shartnoma",
+      "responsibilities": [
+        "Turizm sohasini rivojlantirish uchun mobil ilova yaratish",
+        "Sayyohlarni O'zbekistonning asosiy diqqatga sazovor joylari bilan tanishtirish"
+      ]
+    },
+    {
+      "company": "KPI COM",
+      "position": "Flutter Dasturchi",
+      "employment_type": "To'liq ish kuni",
+      "responsibilities": [
+        "Ko'p modulli yirik dinamik ERP loyihasida ishlash",
+        "Buxgalteriya, HR, Sotuvlar, Ish haqi, Loyihalarni boshqarish va BI modullarini ishlab chiqish"
+      ]
+    },
+    {
+      "company": "Udevs",
+      "position": "Flutter Dasturchi",
+      "employment_type": "To'liq ish kuni",
+      "responsibilities": [
+        "App Store va Play Marketga joylashtirish jarayonlarida ishtirok etish",
+        "Mobil ilova ishlab chiqish bo'yicha keng tajriba orttirish"
+      ]
+    },
+    {
+      "company": "Udevs",
+      "position": "Flutter Stajyor",
+      "employment_type": "Stajirovka",
+      "responsibilities": [
+        "Bir nechta mobil ilovalardagi xatolarni tuzatish",
+        "Flutter freymvorki va Dart tilining asosiy tamoyillarini o'rganish"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "role": "Flutter Dasturchi",
+      "description": "Loyihaga dastlabki ishlab chiqish bosqichidan keyin qo'shildim va samaradorlikni taxminan 40% ga oshirdim. Ilovaning barqarorligini yaxshiladim, xatolarni tuzatdim va to'liq qorong'u va yorug' rejimni joriy etdim."
+    },
+    {
+      "role": "Flutter Dasturchi",
+      "description": "Loyihalarni boshqarish, buxgalteriya va sotuvlar kabi ko'plab modullarga ega ERP tizimi. Asosan loyihalarni boshqarish va bosh sahifa bo'limlarida ishladim, modul UI ishlab chiqish va state managementga e'tibor qaratdim."
+    },
+    {
+      "role": "Flutter Dasturchi",
+      "description": "Sayyohlar uchun yaqin atrofdagi diqqatga sazovor joylarni topish imkonini beruvchi yengil mobil ilova. Oddiy navigatsiya va qulay sayohat uchun responsive UI ga urg'u berilgan."
+    },
+    {
+      "role": "Flutter Dasturchi",
+      "description": "Eski versiyada xatolarni tuzatishdan boshladim. Keyin eskirgan arxitektura sababli loyihani zamonaviy texnologiyalar bilan qaytadan yozdim. Loyiha bitta to'liq ishlab chiqish siklini yakunladi."
+    },
+    {
+      "role": "Flutter Dasturchi",
+      "description": "Asosan xatolarni tuzatish bilan shug'ullandim va ilovalarni App Store va Play Marketga joylashtirishni o'rgandim. Ilova barqarorligi va samaradorligini yaxshiladim."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Udevs kompaniyasining Uacademy bootcamp",
+      "degree": "O'rta maxsus",
+      "field_of_study": "Mobil dasturlash"
+    }
+  ],
+  "languages": [
+    {"name": "O'zbek", "level": "Ona tili"},
+    {"name": "Ingliz", "level": "B1 — O'rta daraja"},
+    {"name": "Rus", "level": "B1 — O'rta daraja"}
+  ],
+  "achievements": [
+    "3 yildan ortiq professional Flutter dasturlash tajribasi",
+    "WebSocket orqali real-time chat tizimini yaratish",
+    "Ko'p modulli yirik ERP tizimini ishlab chiqish",
+    "App Store va Play Marketda ilovalar nashr qilish"
+  ]
+}

@@ -47,13 +47,13 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBYh1UAbKlB4IJie1vLgfSCP3CdN6_A3pc',
-    appId: '1:48469773885:web:02ae39e5569af9e87ca454',
-    messagingSenderId: '48469773885',
-    projectId: 'olloyorcom-d6869',
-    authDomain: 'olloyorcom-d6869.firebaseapp.com',
-    storageBucket: 'olloyorcom-d6869.firebasestorage.app',
-    measurementId: 'G-1SZXW31Y65',
+    apiKey: 'AIzaSyB5X43ynk0EWa7VPPjzJItuz0R4ouQZbJM',
+    appId: '1:420477907446:web:dd9333a3185b4315ea97d7',
+    messagingSenderId: '420477907446',
+    projectId: 'olloyor-com',
+    authDomain: 'olloyor-com.firebaseapp.com',
+    storageBucket: 'olloyor-com.firebasestorage.app',
+    measurementId: 'G-GB9VTDNDC5',
   );
 
   static const FirebaseOptions android = FirebaseOptions(

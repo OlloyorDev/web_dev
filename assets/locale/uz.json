@@ -1,11 +1,20 @@
 {
   "aboutMe": "Men haqimda",
+  "skills": "Ko'nikmalar",
+  "primarySkills": "Asosiy",
+  "secondarySkills": "Qo'shimcha",
+  "tools": "Vositalar",
   "experience": "Tajriba",
   "projects": "Loyihalar",
+  "education": "Ta'lim",
+  "achievements": "Yutuqlar",
+  "languages": "Tillar",
   "contact": "Aloqa",
   "dark": "Tungi",
   "light": "Yorugʻ",
   "auto": "Avto",
   "error": "Xatolik yuz berdi",
-  "retry": "Qayta urinish"
+  "retry": "Qayta urinish",
+  "showMore": "Ko'proq ko'rsatish",
+  "showLess": "Kamroq ko'rsatish"
 }

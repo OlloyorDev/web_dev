@@ -68,7 +68,7 @@ class ThemeChangeWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             color: context.themeColor.cardBackground,
             border: Border.all(
-              color: context.themeColor.textPrimary,
+              color: context.themeColor.divider,
               width: 0.5,
             ),
           ),
@@ -119,10 +119,10 @@ class _ThemeItemCard extends StatelessWidget {
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-            color: active ? context.themeColor.textPrimary : Colors.transparent,
+            color: active ? context.colorScheme.primary : Colors.transparent,
             border: active
                 ? Border.all(
-                    color: context.themeColor.white,
+                    color: context.colorScheme.primary,
                     width: 0.5,
                   )
                 : null,
@@ -132,7 +132,7 @@ class _ThemeItemCard extends StatelessWidget {
             title,
             style: context.theme.textTheme.bodySmall?.copyWith(
               color: active
-                  ? context.themeColor.background
+                  ? context.colorScheme.onPrimary
                   : context.themeColor.textPrimary,
             ),
           ).paddingSymmetric(horizontal: 4, vertical: 2),

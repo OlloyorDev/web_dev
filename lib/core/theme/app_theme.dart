@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_devop/core/theme/color/app_colors.dart';
 import 'package:web_devop/core/theme/color_scheme/color_scheme.dart';
 
 final ThemeData appTheme = ThemeData(
@@ -21,11 +22,11 @@ final ThemeData lightTheme = appTheme.copyWith(
     ThemeColors.light,
   ],
   colorScheme: lightColorScheme,
-  scaffoldBackgroundColor: lightColorScheme.surface,
+  scaffoldBackgroundColor: AppColors.lightBackground,
   textTheme: const TextTheme(
-    bodyLarge: TextStyle(color: Colors.black87, fontFamily: 'Montserrat'),
-    bodyMedium: TextStyle(color: Colors.black87, fontFamily: 'Montserrat'),
-    bodySmall: TextStyle(color: Colors.black87, fontFamily: 'Montserrat'),
+    bodyLarge: TextStyle(color: AppColors.lightTextPrimary, fontFamily: 'Montserrat'),
+    bodyMedium: TextStyle(color: AppColors.lightTextPrimary, fontFamily: 'Montserrat'),
+    bodySmall: TextStyle(color: AppColors.lightTextPrimary, fontFamily: 'Montserrat'),
   ),
 );
 
@@ -34,10 +35,10 @@ final ThemeData darkTheme = appTheme.copyWith(
     ThemeColors.dark,
   ],
   colorScheme: darkColorScheme,
-  scaffoldBackgroundColor: darkColorScheme.surface,
+  scaffoldBackgroundColor: AppColors.darkBackground,
   textTheme: const TextTheme(
-    bodyLarge: TextStyle(color: Colors.white70, fontFamily: 'Montserrat'),
-    bodyMedium: TextStyle(color: Colors.white70, fontFamily: 'Montserrat'),
-    bodySmall: TextStyle(color: Colors.white70, fontFamily: 'Montserrat'),
+    bodyLarge: TextStyle(color: AppColors.darkTextPrimary, fontFamily: 'Montserrat'),
+    bodyMedium: TextStyle(color: AppColors.darkTextPrimary, fontFamily: 'Montserrat'),
+    bodySmall: TextStyle(color: AppColors.darkTextPrimary, fontFamily: 'Montserrat'),
   ),
 );

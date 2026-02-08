@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_devop/common/extension/app_extensions.dart';
 import 'package:web_devop/common/extension/build_context_extension.dart';
 import 'package:web_devop/features/app/presentation/bloc/app_bloc.dart';
+import 'package:web_devop/features/home/presentation/bloc/home_bloc.dart';
 import 'package:web_devop/features/home/presentation/pages/web/home_web_page.dart';
 
 class WebAppbar extends StatelessWidget {
@@ -192,6 +193,9 @@ class _LanguageDropdown extends StatelessWidget {
               onChanged: (v) {
                 if (v != null) {
                   context.read<AppBloc>().add(ChangeLanguageEvent(Locale(v)));
+                  context
+                      .read<HomeBloc>()
+                      .add(GetInitialData(languageCode: v));
                 }
               },
             ),

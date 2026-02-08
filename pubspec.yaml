@@ -1,6 +1,6 @@
 name: web_devop
 description: A new Flutter project.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -12,41 +12,14 @@ dependencies:
     sdk: flutter
   go_router: ^16.2.5
   intl: ^0.20.2
-  # hive no sql database
-  hive: ^2.2.3
-  # path
-  path_provider: ^2.1.5
-  # get it singleton
   get_it: ^8.2.0
-  # equatable
   equatable: ^2.0.7
-  # bloc state manager
   flutter_bloc: ^9.1.1
-  # async
-  async: ^2.13.0
-  # forms
-  formz: ^0.8.0
-  # internet check
-  connectivity_plus: ^6.1.1
-  internet_connection_checker: ^3.0.1
-  # interceptor
-  dio: ^5.9.0
-  dio_retry_plus: ^2.0.8
-  # alice = chuck
-  chuck_interceptor: ^2.3.2
-  # device_info_plus:
-  device_info_plus: ^12.2.0
-  # box
   gap: ^3.0.1
-  # svg render
-  flutter_svg: ^2.2.1
-  # cached image
   cached_network_image: ^3.4.1
-  # native splash
-  flutter_native_splash: ^2.4.7
   firebase_core: ^4.2.0
-  cloud_firestore: ^6.1.0
-  lottie: 3.3.2
+  firebase_remote_config: ^6.1.2
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
@@ -55,18 +28,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-
   assets:
     - assets/locale/
     - assets/fonts/
-    - assets/lottie/
   fonts:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-SemiBold.ttf
-#    - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-

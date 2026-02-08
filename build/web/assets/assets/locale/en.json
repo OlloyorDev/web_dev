@@ -1,11 +1,20 @@
 {
   "aboutMe": "About Me",
+  "skills": "Skills",
+  "primarySkills": "Primary",
+  "secondarySkills": "Secondary",
+  "tools": "Tools",
   "experience": "Experience",
   "projects": "Projects",
+  "education": "Education",
+  "achievements": "Achievements",
+  "languages": "Languages",
   "contact": "Contact",
   "dark": "Dark",
   "light": "Light",
   "auto": "Auto",
   "error": "Something went wrong",
-  "retry": "Retry"
+  "retry": "Retry",
+  "showMore": "Show more",
+  "showLess": "Show less"
 }

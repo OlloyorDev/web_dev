@@ -1,0 +1,123 @@
+{
+  "personal_info": {
+    "avatar": "https://lh3.googleusercontent.com/a/ACg8ocJfK0MSwDqj9Npy3bDsvWwl0GkEvowsqdB7FWuZ08itQu8efpEC=s576-c-no",
+    "email": "olloyornodirov1999@gmail.com",
+    "phone": "+998 99 995 95 25",
+    "website": "olloyor.com",
+    "github": "https://github.com/OlloyorDev",
+    "linkedin": "https://www.linkedin.com/in/olloyor-nodirov-4262b120a/"
+  },
+  "skills": {
+    "primary": [
+      "Flutter",
+      "Dart",
+      "REST API",
+      "WebSocket",
+      "Git",
+      "OOP",
+      "Clean Architecture"
+    ],
+    "secondary": [
+      "Firebase",
+      "Bloc",
+      "Swift",
+      "AppStore",
+      "PlayMarket",
+      "Maps (Yandex, Google)"
+    ],
+    "tools": [
+      "Gitlab",
+      "Atlassian Jira",
+      "Android Studio",
+      "Xcode",
+      "VS Code"
+    ]
+  },
+  "experience": [
+    {
+      "start_date": "2025-07",
+      "end_date": null,
+      "is_current": true,
+      "technologies": ["Flutter", "Dart", "WebSocket", "Bloc"]
+    },
+    {
+      "start_date": "2024-10",
+      "end_date": null,
+      "is_current": true,
+      "technologies": ["Flutter", "Dart", "REST API", "Bloc"]
+    },
+    {
+      "start_date": "2024-07",
+      "end_date": "2024-11",
+      "is_current": false,
+      "technologies": ["Flutter", "Dart"]
+    },
+    {
+      "start_date": "2023-09",
+      "end_date": "2024-08",
+      "is_current": false,
+      "technologies": ["Flutter", "Bloc", "GetIt", "Hive", "GoRouter", "Local Notification"]
+    },
+    {
+      "start_date": "2023-03",
+      "end_date": "2023-08",
+      "is_current": false,
+      "technologies": ["Flutter", "Dart"]
+    },
+    {
+      "start_date": "2023-02",
+      "end_date": "2023-03",
+      "is_current": false,
+      "technologies": ["Flutter", "Dart"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "FunWay",
+      "start_date": "2025-07",
+      "end_date": null,
+      "technologies": ["Flutter", "Bloc", "Firebase", "GoRouter"],
+      "ios_app_link": "https://apps.apple.com/app/funway/id6504392817",
+      "android_app_link": "https://play.google.com/store/apps/details?id=com.funway.app"
+    },
+    {
+      "name": "KPI.COM Mobile",
+      "start_date": "2023-09",
+      "end_date": "2025-01",
+      "technologies": ["Flutter", "GoRouter", "Bloc", "Hive", "Firebase", "REST API"],
+      "ios_app_link": "https://apps.apple.com/app/kpi-com/id1aborc523",
+      "android_app_link": "https://play.google.com/store/apps/details?id=com.kpi.mobile"
+    },
+    {
+      "name": "Tourist Map",
+      "start_date": "2024-07",
+      "end_date": "2024-09",
+      "technologies": ["Flutter", "Google Maps", "Firebase", "Bloc"],
+      "ios_app_link": "https://apps.apple.com/app/tourist-map-uz/id6478301245",
+      "android_app_link": null
+    },
+    {
+      "name": "OxBox",
+      "start_date": "2023-06",
+      "end_date": "2023-08",
+      "technologies": ["Flutter", "Bloc", "GetIt", "Clean Architecture", "Push Notifications"],
+      "ios_app_link": "https://apps.apple.com/app/oxbox/id1592847361",
+      "android_app_link": "https://play.google.com/store/apps/details?id=com.oxbox.app"
+    },
+    {
+      "name": "UZD+",
+      "start_date": "2023-02",
+      "end_date": "2023-03",
+      "technologies": ["Flutter", "Firebase", "GetX", "Bloc"],
+      "ios_app_link": "https://apps.apple.com/app/uzd-plus/id1601385274",
+      "android_app_link": "https://play.google.com/store/apps/details?id=uz.uzd.plus"
+    }
+  ],
+  "education": [
+    {
+      "start_year": "2022",
+      "end_year": "2022"
+    }
+  ],
+  "certifications": []
+}

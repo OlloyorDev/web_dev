@@ -1,11 +1,20 @@
 {
   "aboutMe": "Обо мне",
+  "skills": "Навыки",
+  "primarySkills": "Основные",
+  "secondarySkills": "Дополнительные",
+  "tools": "Инструменты",
   "experience": "Опыт",
   "projects": "Проекты",
+  "education": "Образование",
+  "achievements": "Достижения",
+  "languages": "Языки",
   "contact": "Контакты",
   "dark": "Темная",
   "light": "Светлая",
   "auto": "Авто",
   "error": "Что-то пошло не так",
-  "retry": "Повторить"
+  "retry": "Повторить",
+  "showMore": "Показать ещё",
+  "showLess": "Свернуть"
 }

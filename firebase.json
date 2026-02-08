@@ -1,1 +1,29 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"olloyorcom-d6869","appId":"1:48469773885:android:5cbcd8dee47a56ba7ca454","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"olloyorcom-d6869","appId":"1:48469773885:ios:2f99f5b6c3e54ea17ca454","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"olloyorcom-d6869","configurations":{"android":"1:48469773885:android:5cbcd8dee47a56ba7ca454","ios":"1:48469773885:ios:2f99f5b6c3e54ea17ca454","web":"1:48469773885:web:02ae39e5569af9e87ca454"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "olloyorcom-d6869",
+          "appId": "1:48469773885:android:5cbcd8dee47a56ba7ca454",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "olloyorcom-d6869",
+          "appId": "1:48469773885:ios:2f99f5b6c3e54ea17ca454",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "olloyor-com",
+          "configurations": {
+            "web": "1:420477907446:web:dd9333a3185b4315ea97d7"
+          }
+        }
+      }
+    }
+  }
+}
