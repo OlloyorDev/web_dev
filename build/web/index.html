@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="olloyor.com — Flutter Web Portfolio">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="olloyor.com">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="manifest" href="manifest.json">
+
+    <title>olloyor.com</title>
+
+    <script>
+        var serviceWorkerVersion = '"4097645722"';
+    </script>
+    <script src="flutter.js" defer></script>
+
+    <style>
+        html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          overflow: hidden;
+          transition: background-color 0.3s ease;
+        }
+
+        /* Dark theme (default) */
+        body {
+          background-color: #171923;
+        }
+
+        /* Light theme */
+        @media (prefers-color-scheme: light) {
+          body {
+            background-color: #F4F5F9;
+          }
+          #splash {
+            background-color: #F4F5F9;
+          }
+        }
+
+        #splash {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: inherit;
+          z-index: 9999;
+          opacity: 1;
+          transition: opacity 0.5s ease-out;
+        }
+
+        .loader {
+          width: 40px;
+          height: 40px;
+          border: 3px solid rgba(255,255,255,0.3);
+          border-top: 3px solid white;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+
+        @media (prefers-color-scheme: light) {
+          .loader {
+            border: 3px solid rgba(0,0,0,0.1);
+            border-top: 3px solid #333;
+          }
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+<div id="splash">
+    <div class="loader"></div>
+</div>
+
+<script>
+    // Splashni o‘chirish - DOM’ni to‘liq o‘chirmaymiz, faqat yashiramiz
+    window.addEventListener('flutter-first-frame', function () {
+      const splash = document.getElementById('splash');
+      if (!splash) return;
+      splash.style.opacity = '0';
+      setTimeout(() => {
+        splash.style.display = 'none'; // o‘chirib tashlash o‘rniga faqat yashiramiz
+      }, 600); // 500ms fade + 100ms buffer
+    });
+</script>
+
+<script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
