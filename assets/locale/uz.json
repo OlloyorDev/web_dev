@@ -5,5 +5,7 @@
   "contact": "Aloqa",
   "dark": "Tungi",
   "light": "Yorugʻ",
-  "auto": "Avto"
+  "auto": "Avto",
+  "error": "Xatolik yuz berdi",
+  "retry": "Qayta urinish"
 }

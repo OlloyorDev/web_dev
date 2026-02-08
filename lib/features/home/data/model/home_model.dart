@@ -4,19 +4,19 @@ import 'package:web_devop/config/router/app_router.dart';
 
 class HomeModel extends Equatable {
   final AboutMe? aboutMe;
-  final Experience? experience;
+  final List<Experience>? experiences;
   final List<Projects>? projects;
   final List<Contact>? contacts;
 
   const HomeModel({
     this.aboutMe,
-    this.experience,
+    this.experiences,
     this.projects,
     this.contacts,
   });
 
   @override
-  List<Object?> get props => [aboutMe, experience, projects, contacts];
+  List<Object?> get props => [aboutMe, experiences, projects, contacts];
 }
 
 class AboutMe extends Equatable {
@@ -48,7 +48,7 @@ class AboutMe extends Equatable {
   }
 
   @override
-  List<Object?> get props => [image, title, description];
+  List<Object?> get props => [image, name, title, description];
 }
 
 class Experience extends Equatable {

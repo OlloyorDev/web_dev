@@ -5,5 +5,7 @@
   "contact": "Contact",
   "dark": "Dark",
   "light": "Light",
-  "auto": "Auto"
+  "auto": "Auto",
+  "error": "Something went wrong",
+  "retry": "Retry"
 }

@@ -10,14 +10,14 @@ import 'package:web_devop/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  FirebaseFirestore.instance.settings = const Settings(
-    persistenceEnabled: true,
-  );
+  if (!kIsWeb) {
+    FirebaseFirestore.instance.settings = const Settings(
+      persistenceEnabled: true,
+    );
+  }
   await initInjection();
   if (kDebugMode) Bloc.observer = LogBlocObserver();
-
 
   runApp(const App());
 }

@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:web_devop/core/theme/color_scheme/color_scheme.dart';
 
@@ -8,11 +5,7 @@ final ThemeData appTheme = ThemeData(
   useMaterial3: true,
   fontFamily: 'Montserrat',
   applyElevationOverlayColor: true,
-  splashFactory: !kIsWeb
-      ? Platform.isAndroid
-          ? InkRipple.splashFactory
-          : NoSplash.splashFactory
-      : InkRipple.splashFactory,
+  splashFactory: InkRipple.splashFactory,
   visualDensity: VisualDensity.standard,
   materialTapTargetSize: MaterialTapTargetSize.padded,
   textButtonTheme: const TextButtonThemeData(
@@ -25,13 +18,8 @@ final ThemeData appTheme = ThemeData(
 
 final ThemeData lightTheme = appTheme.copyWith(
   extensions: <ThemeExtension<dynamic>>[
-    // ThemeTextStyles.light,
     ThemeColors.light,
   ],
-  applyElevationOverlayColor: true,
-  visualDensity: VisualDensity.standard,
-  materialTapTargetSize: MaterialTapTargetSize.padded,
-  dividerTheme: const DividerThemeData(thickness: 1),
   colorScheme: lightColorScheme,
   scaffoldBackgroundColor: lightColorScheme.surface,
   textTheme: const TextTheme(
@@ -43,13 +31,8 @@ final ThemeData lightTheme = appTheme.copyWith(
 
 final ThemeData darkTheme = appTheme.copyWith(
   extensions: <ThemeExtension<dynamic>>[
-    // ThemeTextStyles.light,
     ThemeColors.dark,
   ],
-  applyElevationOverlayColor: true,
-  visualDensity: VisualDensity.standard,
-  materialTapTargetSize: MaterialTapTargetSize.padded,
-  dividerTheme: const DividerThemeData(thickness: 1),
   colorScheme: darkColorScheme,
   scaffoldBackgroundColor: darkColorScheme.surface,
   textTheme: const TextTheme(

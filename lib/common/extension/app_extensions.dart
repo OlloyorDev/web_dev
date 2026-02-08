@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/widgets.dart';
@@ -71,26 +70,22 @@ extension TimeFormatExtension on int {
 }
 
 extension SizeExtension on BuildContext {
-  bool get isMobile =>
-      MediaQuery.sizeOf(this).width < 600 &&
-      (Platform.isAndroid || Platform.isIOS);
+  double get screenWidth => MediaQuery.sizeOf(this).width;
 
-  bool get isTablet =>
-      MediaQuery.sizeOf(this).width > 600 &&
-      (Platform.isAndroid || Platform.isIOS);
+  bool get isMobile => screenWidth < 600;
 
-  EdgeInsets get kMargin16 => EdgeInsets.only(
-    top: MediaQuery.paddingOf(this).top,
-    left: isMobile ? 16 : 200,
-    right: isMobile ? 16 : 200,
-    bottom: MediaQuery.paddingOf(this).bottom,
-  );
+  bool get isTablet => screenWidth >= 600 && screenWidth < 1024;
 
-  EdgeInsets get kMarginBottom16 => EdgeInsets.only(
-    bottom: MediaQuery.paddingOf(this).bottom,
-    left: isMobile ? 16 : 200,
-    right: isMobile ? 16 : 200,
-  );
+  bool get isDesktop => screenWidth >= 1024;
+
+  double get horizontalPadding {
+    if (isMobile) return 16;
+    if (isTablet) return 40;
+    return screenWidth * 0.15;
+  }
+
+  EdgeInsets get responsiveHorizontalPadding =>
+      EdgeInsets.symmetric(horizontal: horizontalPadding);
 
   Size get kSize => MediaQuery.sizeOf(this);
 
@@ -106,17 +101,9 @@ extension CheckPhoneOrEmail on String? {
 
   bool get checkPhoneNumber {
     if (this == null) return false;
-    final phoneRegex = RegExp(
-      r'^\+?\d{9,15}$',
-    ); // e.g. +998901234567 or 998901234567
+    final phoneRegex = RegExp(r'^\+?\d{9,15}$');
     return phoneRegex.hasMatch(this!);
   }
-}
-
-extension PlatformExt on BuildContext {
-  bool get isAndroid => Platform.isAndroid;
-
-  bool get isIOS => Platform.isIOS;
 }
 
 extension ListExt<T> on List<T> {

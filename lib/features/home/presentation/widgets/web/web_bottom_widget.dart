@@ -2,40 +2,60 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:web_devop/common/extension/app_extensions.dart';
 import 'package:web_devop/common/extension/build_context_extension.dart';
-import 'package:web_devop/core/util/app_utils.dart';
 import 'package:web_devop/features/app/presentation/bloc/app_bloc.dart';
 
 class WebBottomWidget extends StatelessWidget {
   const WebBottomWidget({super.key});
 
   @override
-  Widget build(BuildContext context) => SliverToBoxAdapter(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.2,
-            vertical: 24,
-          ),
-          child: Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+  Widget build(BuildContext context) {
+    final isMobile = context.isMobile;
+
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: context.horizontalPadding,
+          vertical: 24,
+        ),
+        child: isMobile
+            ? Column(
                 children: [
                   Text(
                     'Designed & Developed by Olloyor Nodirov',
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: context.theme.textTheme.bodySmall,
+                    textAlign: TextAlign.center,
                   ),
                   Text(
                     'Used Flutter for Web',
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: context.theme.textTheme.bodySmall,
+                    textAlign: TextAlign.center,
                   ),
+                  const SizedBox(height: 12),
+                  const ThemeChangeWidget(),
+                ],
+              )
+            : Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Designed & Developed by Olloyor Nodirov',
+                        style: context.theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        'Used Flutter for Web',
+                        style: context.theme.textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  const ThemeChangeWidget(),
                 ],
               ),
-              AppUtils.kSpacer,
-              const ThemeChangeWidget(),
-            ],
-          ),
-        ),
-      );
+      ),
+    );
+  }
 }
 
 class ThemeChangeWidget extends StatelessWidget {
@@ -53,19 +73,20 @@ class ThemeChangeWidget extends StatelessWidget {
             ),
           ),
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               _ThemeItemCard(
                 title: context.tr('light'),
                 active: state.themeMode.isLight,
                 onTap: () => _setUpThemeMode(context, ThemeMode.light),
               ),
-              AppUtils.kGap4,
+              const SizedBox(width: 4),
               _ThemeItemCard(
                 title: context.tr('dark'),
                 active: state.themeMode.isDark,
                 onTap: () => _setUpThemeMode(context, ThemeMode.dark),
               ),
-              AppUtils.kGap4,
+              const SizedBox(width: 4),
               _ThemeItemCard(
                 title: context.tr('auto'),
                 active: state.themeMode.isSystem,
@@ -76,7 +97,7 @@ class ThemeChangeWidget extends StatelessWidget {
         ),
       );
 
-  _setUpThemeMode(BuildContext context, ThemeMode mode) {
+  void _setUpThemeMode(BuildContext context, ThemeMode mode) {
     context.read<AppBloc>().add(ChangeThemeEvent(mode));
   }
 }
@@ -87,7 +108,6 @@ class _ThemeItemCard extends StatelessWidget {
   final bool active;
 
   const _ThemeItemCard({
-    super.key,
     required this.title,
     required this.onTap,
     required this.active,

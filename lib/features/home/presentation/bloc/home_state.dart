@@ -2,11 +2,11 @@ part of 'home_bloc.dart';
 
 class HomeState extends Equatable {
   final GetStatus getStatus;
-  // final HomeModel? homeData;
+  final HomeModel homeData;
 
   const HomeState({
     this.getStatus = GetStatus.initial,
-    // this.homeData,
+    this.homeData = const HomeModel(),
   });
 
   HomeState copyWith({
@@ -15,16 +15,11 @@ class HomeState extends Equatable {
   }) =>
       HomeState(
         getStatus: getStatus ?? this.getStatus,
-        // homeData: homeData ?? this.homeData,
+        homeData: homeData ?? this.homeData,
       );
 
   @override
-  List<Object> get props => [getStatus];
-}
-
-final class HomeInitial extends HomeState {
-  @override
-  List<Object> get props => [];
+  List<Object> get props => [getStatus, homeData];
 }
 
 enum GetStatus { initial, loading, success, error }

@@ -21,17 +21,51 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final snapshot =
           await FirebaseFirestore.instance.collectionGroup('home').get();
 
-      AboutMe aboutMe;
-      List<Experience> experience;
-      List<Projects> projects;
-      List<Contact> contacts;
+      if (snapshot.docs.isEmpty) {
+        emit(state.copyWith(getStatus: GetStatus.error));
+        return;
+      }
 
-      aboutMe = AboutMe.fromJson(snapshot.docs.first.data());
+      AboutMe? aboutMe;
+      List<Experience> experiences = [];
+      List<Projects> projects = [];
+      List<Contact> contacts = [];
 
-      print('homeData: $aboutMe');
+      for (final doc in snapshot.docs) {
+        final data = doc.data();
+        final type = data['type'] as String?;
+
+        switch (type) {
+          case 'about_me':
+            aboutMe = AboutMe.fromJson(data);
+            break;
+          case 'experience':
+            experiences.add(Experience.fromJson(data));
+            break;
+          case 'project':
+            projects.add(Projects.fromJson(data));
+            break;
+          case 'contact':
+            contacts.add(Contact.fromJson(data));
+            break;
+          default:
+            aboutMe ??= AboutMe.fromJson(data);
+        }
+      }
+
+      emit(state.copyWith(
+        getStatus: GetStatus.success,
+        homeData: HomeModel(
+          aboutMe: aboutMe,
+          experiences: experiences,
+          projects: projects,
+          contacts: contacts,
+        ),
+      ));
     } catch (e, stackTrace) {
       debugPrint('Error fetching data: $e');
       debugPrint('Stack trace: $stackTrace');
+      emit(state.copyWith(getStatus: GetStatus.error));
     }
   }
 }

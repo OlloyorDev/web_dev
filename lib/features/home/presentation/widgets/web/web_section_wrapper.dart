@@ -4,55 +4,44 @@ import 'package:web_devop/common/extension/build_context_extension.dart';
 
 class WebSectionWrapper extends StatelessWidget {
   final String title;
-  final String? subtitle;
   final Widget? content;
   final GlobalKey sectionKey;
-  final VoidCallback onTap;
 
   const WebSectionWrapper({
     super.key,
     required this.title,
-    this.subtitle,
     this.content,
     required this.sectionKey,
-    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) => SliverToBoxAdapter(
-        child: InkWell(
-          borderRadius: BorderRadius.circular(12),
-          onTap: onTap,
-          child: Container(
-            key: sectionKey,
-            decoration: BoxDecoration(
-              color: context.themeColor.cardBackground,
-              border: Border.all(
-                color: context.themeColor.background,
-                width: 0.5,
-              ),
-              borderRadius: BorderRadius.circular(12),
+        child: Container(
+          key: sectionKey,
+          margin: context.responsiveHorizontalPadding,
+          decoration: BoxDecoration(
+            color: context.themeColor.cardBackground,
+            border: Border.all(
+              color: context.themeColor.background,
+              width: 0.5,
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                if (subtitle != null)
-                  Text(
-                    subtitle!,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w100
-                    ),
-                  ),
-                if (content != null) content!
-              ],
-            ).paddingAll(12),
+            borderRadius: BorderRadius.circular(12),
           ),
-        ).paddingSymmetric(horizontal: MediaQuery.of(context).size.width * 0.2),
+          padding: EdgeInsets.all(context.isMobile ? 16 : 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: context.theme.textTheme.bodyLarge?.copyWith(
+                  fontSize: context.isMobile ? 20 : 24,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 12),
+              if (content != null) content!,
+            ],
+          ),
+        ),
       );
 }
