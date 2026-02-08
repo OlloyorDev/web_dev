@@ -2,16 +2,20 @@ part of 'home_bloc.dart';
 
 class HomeState extends Equatable {
   final GetStatus getStatus;
+  // final HomeModel? homeData;
 
   const HomeState({
-    this.getStatus = GetStatus.loading,
+    this.getStatus = GetStatus.initial,
+    // this.homeData,
   });
 
   HomeState copyWith({
     GetStatus? getStatus,
+    HomeModel? homeData,
   }) =>
       HomeState(
         getStatus: getStatus ?? this.getStatus,
+        // homeData: homeData ?? this.homeData,
       );
 
   @override

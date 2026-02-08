@@ -6,7 +6,9 @@ import 'package:web_devop/features/app/presentation/bloc/app_bloc.dart';
 import 'package:web_devop/features/home/presentation/pages/web/home_web_page.dart';
 
 class WebAppbar extends StatelessWidget {
-  const WebAppbar({super.key});
+  final String name;
+
+  const WebAppbar({super.key, required, required this.name});
 
   void _scrollToSection(GlobalKey key) {
     Scrollable.ensureVisible(
@@ -26,7 +28,7 @@ class WebAppbar extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                context.tr('fullName'),
+                name,
                 style: context.theme.textTheme.bodyLarge!.copyWith(
                   fontWeight: FontWeight.w900,
                 ),

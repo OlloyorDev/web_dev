@@ -19,20 +19,27 @@ class HomeWebPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
+          // return SizedBox.shrink();
           return SelectableRegion(
             selectionControls: MaterialTextSelectionControls(),
             child: Scaffold(
               body: state.getStatus.loading
                   ? Center(
-                      child: Lottie.asset(
-                        'assets/lottie/loading.json',
-                        height: 50,
-                        width: 50,
+                      child: RepaintBoundary(
+                        child: Lottie.asset(
+                          'assets/lottie/loading.json',
+                          animate: true,
+                          repeat: false,
+                          height: 50,
+                          width: 50,
+                        ),
+                        // child: const CircularProgressIndicator(),
                       ),
+                      // child: CircularProgressIndicator(),
                     )
                   : CustomScrollView(
                       slivers: [
-                        const WebAppbar(),
+                        WebAppbar(name: 'Name'),
                         WebSectionWrapper(
                           title: context.tr('aboutMe'),
                           sectionKey: aboutMeKey,
